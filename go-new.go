@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -77,8 +78,7 @@ func setupProject(dir, project string) {
 	err = os.MkdirAll(dir, 0777)
 	checkError(err)
 
-	filename := dir + "/" + project
-	file := filename + "." + "go"
+	file := filepath.Join(dir, project+".go")
 	_, err = os.Create(file)
 	checkError(err)
 }
